@@ -33,7 +33,7 @@ def process(file):
 
 def save(data, file_path):
     file_path = file_path[:-5] + '_clean.html'
-    with open(file_path, 'w') as file:
+    with open(file_path, 'w', encoding="utf-8") as file:
         file.write(data)
 
 
@@ -44,7 +44,7 @@ if __name__ == "__main__":
         exit(0)
     file_path = sys.argv[1]
     print("Read file path: ", file_path)
-    with open(file_path) as file:
+    with open(file_path, encoding="utf-8") as file:
         data = process(file)
         save(data, file_path)
     
