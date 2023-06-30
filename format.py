@@ -8,7 +8,9 @@ def disabled_input_filter(tag):
 
 def result_class_div_filter(tag):
     # <div class="result" ...>
-    return tag.name == "div" and tag.has_attr("class") and ("result" in tag["class"] or "longField" in tag["class"])
+    type1:bool = tag.name == "div" and tag.has_attr("class") and ("result" in tag["class"] or "longField" in tag["class"])
+    type2:bool = tag.name == "div" and tag.has_attr("style") and ("solid" in tag["style"])
+    return type1 or type2
 
 def process(file):
     soup = BeautifulSoup(file, features="html.parser")
